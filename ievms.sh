@@ -69,11 +69,10 @@ download() { # name url path md5
         log "Found ${1} at ${3} - skipping download"
         check_md5 "${3}" "${4}" && return 0
         log "Check failed - redownloading ${1}"
-        rm -f "${3}"
     fi
 
     log "Downloading ${1} from ${2} to ${3} (attempt ${attempt} of ${max})"
-    curl ${curl_opts} -L "${2}" -o "${3}" || fail "Failed to download ${2} to ${ievms_home}/${3} using 'curl', error code ($?)"
+    curl ${curl_opts} -C - -L "${2}" -o "${3}" || fail "Failed to download ${2} to ${ievms_home}/${3} using 'curl', error code ($?)"
     check_md5 "${3}" "${4}" && return 0
 
     if [ "${attempt}" == "${max}" ]

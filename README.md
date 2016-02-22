@@ -164,9 +164,8 @@ guest control from the host machine.
 Resuming Downloads
 ------------------
 
-~~If one of the comically large files fails to download, the `curl` 
-command used will automatically attempt to resume where it left off.~~
-Unfortunately, the modern.IE download servers do not support resume.
+If one of the comically large files fails to download, the `curl` 
+command used will automatically attempt to resume where it left off.
 
 
 Reusing XP VMs
